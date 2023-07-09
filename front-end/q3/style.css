@@ -1,0 +1,232 @@
+:root {
+  --paperback-color: rgb(250, 249, 245);
+  --highlight-color: rgb(232, 193, 65);
+  --inner-padding: 28px;
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --border-radius-sm: 4px;
+  --border-radius-lg: 8px;
+  --book-shadow: 0 2px var(--spacing-1) rgba(0, 0, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+html {
+  background: white;
+  overflow: hidden;
+  font-family: sans-serif;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Verdana", sans-serif;
+}
+
+body {
+  margin: 0 50px 82px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.3);
+  background: var(--paperback-color);
+  overflow: auto;
+  height: 100%;
+  border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+}
+
+img {
+  display: block;
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+  align-self: flex-start;
+}
+
+.container {
+  width: 1000px;
+  display: flex;
+}
+
+.top-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.top-actions .container {
+  padding: 0 var(--inner-padding);
+}
+
+.top-actions .top-logo {
+  margin: var(--spacing-2) 0;
+  padding: var(--spacing-1);
+  background: rgb(204, 204, 204);
+  border-radius: var(--border-radius-sm);
+  width: 200px;
+  text-align: center;
+}
+
+.top-actions .top-menu {
+  margin: var(--spacing-2) 0 var(--spacing-2) auto;
+}
+
+.top-actions .top-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.top-actions .top-menu ul li {
+  padding: var(--spacing-1) var(--spacing-2);
+  margin: 0 var(--spacing-1);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+}
+
+.top-actions .top-menu ul li.active {
+  background: var(--highlight-color);
+  color: white;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-1);
+  margin-bottom: 24px;
+}
+
+.main .container {
+  flex-direction: column;
+  background: white;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg);
+  box-shadow: 0 0 var(--spacing-2) rgba(0, 0, 0, 0.1);
+}
+
+.main h1 {
+  margin: var(--inner-padding);
+  font-weight: 500;
+}
+
+.main .recommended {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--highlight-color);
+  color: white;
+  padding: 4px var(--spacing-1);
+  border-radius: 0 0 0 var(--border-radius-lg);
+  font-size: 0.8em;
+}
+
+.main .featured-book {
+  background: var(--paperback-color);
+  padding: var(--inner-padding);
+  position: relative;
+  gap: 24px;
+  display: flex;
+}
+
+.main .featured-book img {
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--book-shadow);
+  flex-basis: 25%;
+}
+
+.main .featured-book .title {
+  margin: 0 0 4px;
+  font-size: 28px;
+}
+
+.main .featured-book .author {
+  font-size: 0.9em;
+}
+
+.main .top-voted {
+  margin: var(--inner-padding);
+}
+
+.main .top-voted .books-list {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.main .top-voted .books-list .book {
+  border-radius: var(--border-radius-lg);
+  background: var(--paperback-color);
+  padding: var(--spacing-2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+}
+
+.main .top-voted .books-list .book .position {
+  position: absolute;
+  top: var(--spacing-2);
+  right: var(--spacing-2);
+  border-radius: 50%;
+  border: 2px solid var(--highlight-color);
+  color: var(--highlight-color);
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-flex;
+  height: 30px;
+  width: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.main .top-voted .books-list .book img {
+  align-self: center;
+  max-height: 200px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--book-shadow);
+}
+
+.main .top-voted .books-list .book .book-info {
+  font-size: 14px;
+}
+
+.main .top-voted .books-list .book .title {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.main .top-voted .books-list .book .synopsis {
+  margin-top: 24px;
+}
+
+.main .top-voted .books-list .book .synopsis p:last-child {
+  margin-bottom: 0;
+}
+
+footer {
+  background: rgb(41, 41, 41);
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
+}
+
+footer .container {
+  width: 500px;
+}
+
+footer nav {
+  flex-grow: 1;
+}
+
+footer nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer nav ul li {
+  margin: 0;
+  color: white;
+  padding: var(--spacing-2);
+}
+
