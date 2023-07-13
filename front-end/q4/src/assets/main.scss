@@ -1,5 +1,4 @@
-$color-text: rgb(10, 10, 10);
-$color-background: rgb(250, 249, 245);
+@import 'variables';
 
 *,
 *::before,
@@ -7,6 +6,7 @@ $color-background: rgb(250, 249, 245);
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
+  min-width: 0;
 }
 
 body {
@@ -21,4 +21,12 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  max-width: 1000px;
+  background: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3), 0 0 16px rgba(0, 0, 0, 0.1);
 }
