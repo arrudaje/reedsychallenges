@@ -1,29 +1,33 @@
 <template>
-  <div class='comments'>
-    <ErrorComponent v-if='error' :error='error' />
-    <h3 class='comments__title'>Comments</h3>
+  <div class="comments">
+    <ErrorComponent v-if="error" :error="error" />
+    <h3 class="comments__title">Comments</h3>
     <textarea
-      v-model='currentComment'
-      class='comments__input'
-      placeholder='Write your comment about this book...'
+      v-model="currentComment"
+      class="comments__input"
+      placeholder="Write your comment about this book..."
     />
-    <Button class='comments__button' @click='saveComment'>Send</Button>
-    <div class='comments__list'>
-      <div v-for='comment in savedComments' class='comments__list__item'>
-        <span class='comments__list__item__user'>Anonymous</span>
-        <p class='comments__list__item__text'>{{ comment }}</p>
+    <Button class="comments__button" @click="saveComment">Send</Button>
+    <div class="comments__list">
+      <div
+        v-for="(comment, index) in savedComments"
+        :key="`comment-${index}`"
+        class="comments__list__item"
+      >
+        <span class="comments__list__item__user">Anonymous</span>
+        <p class="comments__list__item__text">{{ comment }}</p>
       </div>
     </div>
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import Button from '@/components/button.vue'
 import { ref } from 'vue'
 import ErrorComponent from '@/components/error.vue'
 
 const error = ref<Error | null>(null)
-const savedComments = ref([])
+const savedComments = ref<Array<string>>([])
 const currentComment = ref('')
 
 const saveComment = () => {
@@ -38,7 +42,7 @@ const saveComment = () => {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import '@/assets/variables';
 
 .comments {

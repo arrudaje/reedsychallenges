@@ -1,7 +1,6 @@
 import { ref, watchEffect } from 'vue'
 import type { Ref } from 'vue'
 import type { BookList } from '@/types'
-import { cloneDeep } from 'lodash'
 
 const defaultResult: BookList = { books: [], meta: { count: 0 } }
 
@@ -28,7 +27,7 @@ export const useBookList = (searchText: Ref<string>) => {
   watchEffect(() => {
     if (searchText.value.length === 0 || searchText.value.length >= 3) {
       error.value = null
-      filtered.value = cloneDeep(result.value)
+      filtered.value = { ...result.value }
       if (searchText.value.length) {
         filtered.value.books = result.value.books.filter((book) =>
           new RegExp(searchText.value, 'i').test(book.title + book.synopsis)

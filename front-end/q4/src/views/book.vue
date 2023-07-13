@@ -1,35 +1,33 @@
 <template>
-  <RouterLink :to='{ name: "list" }' class='book__back'>
-    <span class='book__back__arrow'>&lt;-</span>
+  <RouterLink :to="{ name: 'list' }" class="book__back">
+    <span class="book__back__arrow">&lt;-</span>
     Back to list
   </RouterLink>
-  <div class='book'>
-    <Loading v-if='loading' :size='100' class='book__loading' />
-    <Error v-else-if='error' :error='error' />
-    <template v-if='book'>
-      <div class='book__header'>
-        <div class='book__header__info'>
-          <h1 class='book__header__info__title'>{{ book.title }}</h1>
-          <span class='book__header__info__author'>{{ book.author }}</span>
+  <div class="book">
+    <Loading v-if="loading" :size="100" class="book__loading" />
+    <Error v-else-if="error" :error="error" />
+    <template v-if="book">
+      <div class="book__header">
+        <div class="book__header__info">
+          <h1 class="book__header__info__title">{{ book.title }}</h1>
+          <span class="book__header__info__author">{{ book.author }}</span>
         </div>
-        <Upvote class='book__header__upvote' :book='book' />
+        <Upvote class="book__header__upvote" :book="book" />
       </div>
-      <div class='book__cover'>
-        <img :src='book.cover' :alt='`${book.title} cover`' />
+      <div class="book__cover">
+        <img :src="book.cover" :alt="`${book.title} cover`" />
       </div>
-      <div class='book__synopsis'>
-        <h2 class='book__synopsis__title'>Synopsis</h2>
+      <div class="book__synopsis">
+        <h2 class="book__synopsis__title">Synopsis</h2>
         <p>{{ book.synopsis }}</p>
       </div>
-      <div class='book__rating'>
-        Rating: {{ book.rating }}/10
-      </div>
-      <Comments class='book__comments' />
+      <div class="book__rating">Rating: {{ book.rating }}/10</div>
+      <Comments class="book__comments" />
     </template>
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import Loading from '@/components/loading.vue'
 import Error from '@/components/error.vue'
 import Upvote from '@/components/upvote.vue'
@@ -44,7 +42,7 @@ const props = defineProps<{
 const { result: book, error, loading } = useBook(props.slug)
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import '@/assets/variables';
 @import '@/assets/mixins';
 

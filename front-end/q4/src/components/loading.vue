@@ -1,15 +1,15 @@
 <template>
-  <div class='loading'></div>
+  <div class="loading"></div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { computed } from 'vue'
 
 const props = withDefaults(defineProps<{ size?: number }>(), { size: 40 })
 const size = computed(() => `${props.size}px`)
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @mixin circle {
   background: rgba(0, 0, 0, 0.5);
   width: v-bind(size);

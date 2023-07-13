@@ -1,21 +1,21 @@
 <template>
   <button
-    class='button'
-    :class='{
-      "button--active": active
-    }'
-    @click='$emit("click")'
+    class="button"
+    :class="{
+      'button--active': active
+    }"
+    @click="$emit('click')"
   >
     <slot />
   </button>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 defineProps<{ active?: boolean }>()
 defineEmits(['click'])
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import '@/assets/variables';
 
 .button {

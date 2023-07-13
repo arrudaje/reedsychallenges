@@ -1,31 +1,25 @@
 <template>
-  <div
-    class='book-item'
-    :class='{ "book-item--odd": order % 2 }'
-  >
-    <div class='book-item__info'>
-      <div class='book-item__info__header'>
-        <RouterLink
-          :to='routerLink'
-          class='book-item__info__header__title'
-        >
+  <div class="book-item" :class="{ 'book-item--odd': order % 2 }">
+    <div class="book-item__info">
+      <div class="book-item__info__header">
+        <RouterLink :to="routerLink" class="book-item__info__header__title">
           {{ order }}. {{ book.title }}
         </RouterLink>
-        <span class='book-item__info__header__rating'>({{ book.rating }}/10)</span>
+        <span class="book-item__info__header__rating">({{ book.rating }}/10)</span>
       </div>
-      <div class='book-item__info__author'>{{ book.author }}</div>
-      <p class='book-item__info__synopsis'>
+      <div class="book-item__info__author">{{ book.author }}</div>
+      <p class="book-item__info__synopsis">
         {{ synopsis }}
       </p>
-      <Upvote class='book-item__info__upvote' :book='book' />
+      <Upvote class="book-item__info__upvote" :book="book" />
     </div>
-    <RouterLink :to='routerLink' class='book-item__cover'>
-      <img :src='book.cover' :alt='`${book.title} cover`' />
+    <RouterLink :to="routerLink" class="book-item__cover">
+      <img :src="book.cover" :alt="`${book.title} cover`" />
     </RouterLink>
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import type { Book } from '@/types'
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
@@ -42,12 +36,12 @@ const synopsis = computed(() => {
 })
 
 const routerLink = computed(() => ({
-  name: "book",
+  name: 'book',
   params: { slug: props.book.slug }
 }))
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import '@/assets/variables';
 @import '@/assets/mixins';
 
